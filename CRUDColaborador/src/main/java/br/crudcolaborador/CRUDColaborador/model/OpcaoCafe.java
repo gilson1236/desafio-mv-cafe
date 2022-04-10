@@ -21,6 +21,7 @@ public class OpcaoCafe {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	//@Column(unique=true)
 	private String nome;
 
 	public String getNome() {

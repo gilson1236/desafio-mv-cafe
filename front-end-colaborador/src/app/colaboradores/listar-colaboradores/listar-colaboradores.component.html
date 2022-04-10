@@ -1,0 +1,21 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Lista de Colaboradores</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <th>Nome</th>
+                <th>Cpf</th>
+                <th>Opção de Café</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let colaborador of colaboradores">
+                    <td>{{ colaborador.nome }}</td>
+                    <td>{{ colaborador.cpf }}</td>
+                    <td>{{ colaborador.opcaoCafe }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

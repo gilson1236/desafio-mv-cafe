@@ -26,8 +26,10 @@ public class Colaborador {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	//@Column(unique=true)
 	private String nome;
 	
+	//@Column(unique=true)
 	private String cpf;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})

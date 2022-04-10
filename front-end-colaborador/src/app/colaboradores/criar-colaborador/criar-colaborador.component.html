@@ -1,0 +1,25 @@
+<h3>Salvar Colaborador</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">nome</label>
+      <input type="text" class="form-control" id="nome" required [(ngModel)]="colaborador.nome" name="nome">
+    </div>
+
+    <div class="form-group">
+      <label for="name">cpf</label>
+      <input type="text" class="form-control" id="cpf" required [(ngModel)]="colaborador.cpf" name="cpf">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Opção Café</label>
+      <input type="text" class="form-control" id="opcaoCafe" required [(ngModel)]="colaborador.opcaoCafe" name="opcaoCafe">
+    </div>
+    
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <button class="btn btn-success" (click)="newColaborador()">Criar</button> -->
+</div>
