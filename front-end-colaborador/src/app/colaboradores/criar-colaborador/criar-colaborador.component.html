@@ -13,7 +13,7 @@
 
     <div class="form-group">
       <label for="name">Opção Café</label>
-      <input type="text" class="form-control" id="opcaoCafe" required [(ngModel)]="colaborador.opcaoCafe" name="opcaoCafe">
+      <input type="text" class="form-control" id="opcaoCafe" required [(ngModel)]="opcaoCafe.nome" name="opcaoCafe">
     </div>
     
     <button type="submit" class="btn btn-success">Submit</button>
@@ -21,5 +21,5 @@
 </div>
 
 <div [hidden]="!submitted">
-  <button class="btn btn-success" (click)="newColaborador()">Criar</button> -->
+  <button class="btn btn-success" (click)="newColaborador()">Criar</button> 
 </div>

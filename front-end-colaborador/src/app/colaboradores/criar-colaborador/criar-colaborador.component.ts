@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Colaborador } from '../models/colaborador';
+import { OpcaoCafe } from '../models/opcao-cafe';
 import { ColaboradorService } from './../services/colaborador.service';
-
 
 @Component({
   selector: 'app-criar-colaborador',
@@ -12,7 +12,9 @@ import { ColaboradorService } from './../services/colaborador.service';
 })
 export class CriarColaboradorComponent implements OnInit {
 
-  colaborador: Colaborador= new Colaborador();
+  colaborador: Colaborador = new Colaborador();
+  opcaoCafe: OpcaoCafe = new OpcaoCafe();
+  opcoes: OpcaoCafe[] = [];
   submitted = false;
 
   constructor(
@@ -29,8 +31,10 @@ export class CriarColaboradorComponent implements OnInit {
   }
 
   salvar(){
-    this.colaboradorService.salvarColaborador(this.colaborador).subscribe((data) => 
-    console.log(data),
+    this.opcoes.push(this.opcaoCafe);
+    this.colaborador.opcaoCafe = this.opcoes;
+    this.colaboradorService.salvarColaborador(this.colaborador).subscribe(() => 
+    console.log(this.colaborador.nome),
     error => console.log(error));
     this.colaborador = new Colaborador();
     this.goToList();

@@ -13,11 +13,11 @@ export class ColaboradorService {
 
   constructor(private http: HttpClient) { }
 
-  getColaboradorList(): Observable<any>{
-    return this.http.get(`${this.url}`);
+  getColaboradorList(): Observable<Colaborador[]>{
+    return this.http.get<Colaborador[]>(`${this.url}`);
   }
 
-  salvarColaborador(colaborador: Colaborador): Observable<Object>{
-    return this.http.post(`${this.url}`, colaborador);
+  salvarColaborador(colaborador: Colaborador): Observable<Colaborador>{
+    return this.http.post<Colaborador>(`${this.url}`, colaborador);
   }
 }
