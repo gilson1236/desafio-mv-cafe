@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Colaborador } from '../models/colaborador';
@@ -13,8 +13,13 @@ import { ColaboradorService } from './../services/colaborador.service';
 export class CriarColaboradorComponent implements OnInit {
 
   colaborador: Colaborador = new Colaborador();
-  opcaoCafe: OpcaoCafe = new OpcaoCafe();
-  opcoes: OpcaoCafe[] = [];
+  
+  opcaoCafe: OpcaoCafe;
+
+  opcoes: OpcaoCafe[];
+
+  nomeOpcao: string;
+
   submitted = false;
 
   constructor(
@@ -23,6 +28,8 @@ export class CriarColaboradorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.nomeOpcao = '';
+    this.opcoes = [];
   }
 
   newColaborador(): void{
@@ -31,7 +38,7 @@ export class CriarColaboradorComponent implements OnInit {
   }
 
   salvar(){
-    this.opcoes.push(this.opcaoCafe);
+    //this.opcoes.push(this.opcaoCafe);
     this.colaborador.opcaoCafe = this.opcoes;
     this.colaboradorService.salvarColaborador(this.colaborador).subscribe(() => 
     console.log(this.colaborador.nome),
@@ -40,12 +47,25 @@ export class CriarColaboradorComponent implements OnInit {
     this.goToList();
   }
 
+  adicionarOpcaoCafe(valorOpcao: string){
+    
+    if(valorOpcao){
+      //this.nomeOpcao = valorOpcao;
+      this.opcaoCafe = new OpcaoCafe();
+      this.opcaoCafe.nome = valorOpcao;
+      console.log(this.opcaoCafe.nome);
+      this.opcoes.push(this.opcaoCafe);
+      console.log(this.opcoes);
+    }
+    
+  }
+
   onSubmit(){
     this.submitted = true;
     this.salvar();
   }
 
   goToList(){
-    this.router.navigate(['/listar']);
+    this.router.navigate(['/lista']);
   }
 }

@@ -13,12 +13,20 @@
 
     <div class="form-group">
       <label for="name">Opção Café</label>
+      <input type="text" class="form-control" #opcao>
+      <button type="button" (click)="adicionarOpcaoCafe(opcao.value)">Adicionar Opção Café</button>
+      <ul><li *ngFor="let item of opcoes">{{ item.nome }}</li></ul>
+      <!--<p>{{ opcoes }}</p>-->
+<!--      <button type="button" (click)="adicionarOpcaoCafe()"></button>-->
+    <!--
       <input type="text" class="form-control" id="opcaoCafe" required [(ngModel)]="opcaoCafe.nome" name="opcaoCafe">
+    -->
     </div>
     
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </div>
+
 
 <div [hidden]="!submitted">
   <button class="btn btn-success" (click)="newColaborador()">Criar</button> 

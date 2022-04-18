@@ -40,7 +40,8 @@ public class ColaboradorController {
 		try {
 			List<Colaborador> todosColaboradores = colaboradorRepository.findAll();
 			if(todosColaboradores.isEmpty()) {
-				System.out.println("Lista Vazia!");
+				//System.out.println("Lista Vazia!");
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 			return new ResponseEntity<>(todosColaboradores, HttpStatus.OK);
 		}catch(Exception e) {

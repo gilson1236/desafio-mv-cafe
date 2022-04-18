@@ -6,13 +6,13 @@ import { CriarColaboradorComponent } from './colaboradores/criar-colaborador/cri
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '/listar', pathMatch: 'full'
+    path: '', redirectTo: '/lista', pathMatch: 'full'
   },
   {
-    path: 'listar', component: ListarColaboradoresComponent
+    path: 'lista', component: ListarColaboradoresComponent
   },
   {
-    path: 'criar', component: CriarColaboradorComponent
+    path: 'colaborador', component: CriarColaboradorComponent
   }
 ];
 

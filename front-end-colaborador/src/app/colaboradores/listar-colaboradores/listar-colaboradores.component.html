@@ -10,10 +10,10 @@
                 <th>Opção de Café</th>
             </thead>
             <tbody>
-                <tr *ngFor="let colaborador of colaboradores$">
+                <tr *ngFor="let colaborador of colaboradores">
                     <td>{{ colaborador.nome }}</td>
                     <td>{{ colaborador.cpf }}</td>
-                    <td>{{ colaborador.opcaoCafe.nome }}</td>
+                    <td>{{ colaborador.opcaoCafe | json }}</td>
                 </tr>
             </tbody>
         </table>

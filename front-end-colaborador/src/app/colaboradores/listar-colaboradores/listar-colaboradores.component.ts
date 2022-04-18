@@ -12,13 +12,14 @@ import { ColaboradorService } from '../services/colaborador.service';
 })
 export class ListarColaboradoresComponent implements OnInit, OnDestroy {
 
-  colaboradores$: Observable<Colaborador[]>;
+  colaboradores: Colaborador[] = [];
   opcoesSubscription: Subscription;
-  opcoes: OpcaoCafe[];
+  opcoes: OpcaoCafe[] = [];
 
   constructor(private colaboradorService: ColaboradorService) { }
+  
   ngOnDestroy(): void {
-    this.opcoesSubscription.unsubscribe();
+    //this.opcoesSubscription.unsubscribe();
   }
 
   ngOnInit(): void {
@@ -26,8 +27,13 @@ export class ListarColaboradoresComponent implements OnInit, OnDestroy {
   }
 
   reloadData(){
-    this.colaboradores$ = this.colaboradorService.getColaboradorList();
-    this.opcoesSubscription = this.colaboradores$.subscribe(opcoes => this.opcoes = opcoes);
+    const subscription = this.colaboradorService.getColaboradorList().subscribe(
+      colaboradores => { 
+        this.colaboradores = colaboradores;
+      }
+    );
+    
+    this.opcoesSubscription.add(subscription);
   }
   
 }
