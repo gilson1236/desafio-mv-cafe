@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Map;
+import java.util.HashMap;
 
 import br.crudcolaborador.CRUDColaborador.repository.ColaboradorRepository;
 import br.crudcolaborador.CRUDColaborador.model.Colaborador;
@@ -71,8 +73,16 @@ public class ColaboradorController {
         
     }
 	
-	@DeleteMapping("/delete/{id}")
-    public void deleteColaboradorPorId(@PathVariable Integer id){
-        colaboradorRepository.deleteById(id);
+	@DeleteMapping("/{id}")
+    public Map<String, Boolean> deleteColaboradorPorId(@PathVariable Integer id){
+        Colaborador colaborador = colaboradorRepository.findById(id)
+        		.orElseThrow(); 
+		
+		colaboradorRepository.deleteById(colaborador.getId());
+        
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("Deleted", Boolean.TRUE);
+
+        return response;
     }
 }

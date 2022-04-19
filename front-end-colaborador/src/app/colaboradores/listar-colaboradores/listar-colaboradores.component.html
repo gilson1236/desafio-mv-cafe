@@ -10,10 +10,14 @@
                 <th>Opção de Café</th>
             </thead>
             <tbody>
-                <tr *ngFor="let colaborador of colaboradores">
+                <tr *ngFor="let colaborador of colaboradores | async">
                     <td>{{ colaborador.nome }}</td>
                     <td>{{ colaborador.cpf }}</td>
                     <td>{{ colaborador.opcaoCafe | json }}</td>
+                    <td>
+                        <button (click)="deleteColaborador(colaborador.id)" class="btn btn-danger">Excluir</button>
+                        <button (click)="detalharColaborador(colaborador.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

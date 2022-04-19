@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ListarColaboradoresComponent } from './colaboradores/listar-colaboradores/listar-colaboradores.component';
 import { CriarColaboradorComponent } from './colaboradores/criar-colaborador/criar-colaborador.component';
+import { ColaboradorDetalhadoComponent } from './colaboradores/colaborador-detalhado/colaborador-detalhado.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path: 'colaborador', component: CriarColaboradorComponent
+  },
+  {
+    path: 'detalhes/:id', component: ColaboradorDetalhadoComponent
   }
 ];
 

@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 
 import { CriarColaboradorComponent } from './colaboradores/criar-colaborador/criar-colaborador.component';
 import { ListarColaboradoresComponent } from './colaboradores/listar-colaboradores/listar-colaboradores.component';
+import { ColaboradorDetalhadoComponent } from './colaboradores/colaborador-detalhado/colaborador-detalhado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CriarColaboradorComponent,
-    ListarColaboradoresComponent
+    ListarColaboradoresComponent,
+    ColaboradorDetalhadoComponent
   ],
   imports: [
     BrowserModule,

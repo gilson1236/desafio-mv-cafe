@@ -1,0 +1,20 @@
+<h2>Colaborador Detalhado</h2>
+
+<hr/>
+
+<div *ngIf="colaborador">
+    <div>
+        <label><b>Nome: </b></label> {{ colaborador.nome }}
+    </div>
+    <div>
+        <label><b>CPF: </b></label> {{ colaborador.cpf }}
+    </div>
+    <div *ngFor="let opcao of colaborador.opcaoCafe">
+        <label><b>Opcão de Café: </b></label> {{ opcao.nome }}
+    </div>
+</div>
+
+<br>
+<br>
+<button (click)="listar()" class="btn btn-primary">Voltar à Lista de Colaboradores</button>
+<br>
